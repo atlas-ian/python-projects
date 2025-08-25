@@ -12,24 +12,38 @@ def divide(a, b):
         return "Error while dividing zero"
     return a / b
 
+def modulus(a, b):
+    return a % b
+
+def power(a, b):
+    return a ** b
+
+
 def main():
     print("===CLI Calculator===")
-    print("Available operations: add, substract, multiply, divide")
+    print("Available operations: add, substract, multiply, divide, modulus, power")
+    while(True):
+        operation = input("Enter opration: ").strip().lower()
+        if operation == "q":
+            print("Goodbye 👋")
+            break            
+        a = float(input("Enter first number: "))
+        b = float(input("Enter second number: "))
 
-    operation = input("Enter opration: ").strip().lower()
-    a = float(input("Enter first number: "))
-    b = float(input("Enter second number: "))
-
-    if operation == "add":
-        print("Result", add(a, b))
-    elif operation == "substract":
-        print("Result", substract(a, b))
-    elif operation == "multiply":
-        print("Result", multiply(a, b))
-    elif operation == "divide":
-        print("Result", divide(a, b))
-    else:    
-        print("Invalid operation")
+        if operation == "add":
+            print("Result", add(a, b))
+        elif operation == "substract":
+            print("Result", substract(a, b))
+        elif operation == "multiply":
+            print("Result", multiply(a, b))
+        elif operation == "divide":
+            print("Result", divide(a, b))
+        elif operation == "modulus":
+            print("Result", modulus(a, b))
+        elif operation == "power":
+            print("Result", power(a, b))
+        else:    
+            print("Invalid operation")
 
 
 if __name__ == "__main__":
