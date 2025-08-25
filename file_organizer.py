@@ -30,7 +30,18 @@ def organize_folder(folder_path):
                 shutil.move(file_path, os.path.join(other_folder, filename))
 
 
+def delete_empty_folders(folder_path):
+    for root, dirs, files in os.walk(folder_path, topdown=False):
+        for d in dirs:
+            dir_path = os.path.join(root, d)
+            # Remove if empty
+            if not os.listdir(dir_path):
+                os.rmdir(dir_path)
+                print(f"🗑️ Deleted empty folder: {dir_path}")
+
+
 if __name__ == "__main__":
     path = input("Enter folder path to organize: ").strip()
     organize_folder(path)
-    print("✅ Files organized successfully!")
+    delete_empty_folders(path)
+    print("✅ Files organized successfully! Empty folders removed.")
